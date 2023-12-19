@@ -23,3 +23,9 @@ services:
             - PMA_PORTS = 3306,3307
             - PMA_USER = root
             - PMA_PASSWORD = eduardo00
+
+    web:
+        image: httpd:latest
+        restart: always
+        ports:
+            - 9002:80
