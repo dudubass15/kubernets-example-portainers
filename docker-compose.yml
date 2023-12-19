@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+    db:
+        image: mysql
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+            MYSQL_DATABASE: finatech
+            MYSQL_ROOT_PASSWORD: eduardo00
+        ports:
+            - 3306:3306
+            - 3307:3307
+
+    phpmyadmin:
+        image: phpmyadmin
+        restart: always
+        ports:
+            - 9001:80
+        environment:
+            - PMA_ARBITRARY = 1
+            - PMA_HOST = localhost
+            - PMA_PORTS = 3306,3307
+            - PMA_USER = root
+            - PMA_PASSWORD = eduardo00
